@@ -94,13 +94,13 @@ export function AvailabilityLine({ className = "" }: { className?: string }) {
 
 export function ContactCTA() {
   return (
-    <section className="section bg-paper text-ink border-t border-line">
+    <section className="section bg-forest text-paper on-dark">
       <div className="wrap">
         <Reveal><h2 className="display t-page max-w-3xl">Let's create something meaningful.</h2></Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-slate">{site.availability}</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-sage">{site.availability}</p></Reveal>
         <Reveal delay={0.2} className="mt-10 flex flex-wrap items-center gap-4">
-          <MLink to="/contact" className="btn btn-solid" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>Get in touch</MLink>
-          <SocialLinks />
+          <MLink to="/contact" className="btn btn-light" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>Get in touch</MLink>
+          <SocialLinks dark />
         </Reveal>
       </div>
     </section>

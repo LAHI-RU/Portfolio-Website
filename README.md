@@ -7,7 +7,7 @@ Multi-page editorial portfolio for Kanchana Karunanayaka (communication, media p
 ## Stack
 React 19 + TypeScript, Vite, Tailwind CSS v4 (`@tailwindcss/vite`, `@theme` tokens in `src/styles/index.css`), Motion for React (`motion/react`), React Router 7, Lucide icons, DM Sans and Instrument Serif via `@fontsource` (bundled, no external requests). shadcn/ui is not used; all components are custom.
 
-The colour theme uses pure white page backgrounds (`paper`), pale neutral card surfaces (`surface`), charcoal headings (`ink`), muted body text (`slate`) and deep teal accents (`teal`). `line` is for subtle dividers; `control` provides stronger borders for form fields and outlined controls. Navigation, mobile menus and contact sections share the white theme. Primary text/button combinations were checked for at least 4.5:1 contrast; control borders against white exceed 3:1.
+The colour theme uses pure white page backgrounds (`paper`), pale neutral card surfaces (`surface`), charcoal headings (`ink`), muted body text (`slate`) and deep teal accents (`teal`). `line` is for subtle dividers; `control` provides stronger borders for form fields and outlined controls. Navigation, mobile menus and the Contact page share the white theme. The “Let's create something meaningful” call to action uses the original dark forest background, white heading, sage supporting text and light button. Primary text/button combinations were checked for at least 4.5:1 contrast; control borders against white exceed 3:1.
 
 ## Requirements
 Node.js 22.12 or newer. On Windows, install Node from nodejs.org, then open the extracted folder in VS Code and use its terminal.
