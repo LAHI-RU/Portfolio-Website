@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #FFFFFF;
+  --color-ink: #19292D;
+  --color-teal: #2C746B;
+  --color-sage: #DCE6E0;
+  --color-clay: #BB7860;
+  --color-forest: #14282B;
+  --color-slate: #536467;
+  --font-sans: "DM Sans Variable", "DM Sans", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans);
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); line-height: 1.65; overflow-x: hidden;
+}
+.display { font-family: var(--font-serif); font-weight: 400; line-height: 1.04; letter-spacing: -0.01em; text-wrap: balance; }
+.t-hero { font-size: clamp(2.75rem, 1.5rem + 3.6vw, 5rem); }
+.t-page { font-size: clamp(2.5rem, 1.8rem + 3.6vw, 4.5rem); }
+.t-section { font-size: clamp(2rem, 1.5rem + 2.2vw, 3.25rem); }
+.meta { font-size: 0.8125rem; letter-spacing: 0.02em; color: var(--color-slate); }
+.prose-w { max-width: 60ch; }
+.wrap { width: min(100% - clamp(2.5rem, 5vw, 6rem), 92rem); margin-inline: auto; }
+.section { padding-block: clamp(4rem, 8vw, 8rem); }
+
+:focus-visible { outline: 2px solid var(--color-teal); outline-offset: 3px; border-radius: 2px; }
+.on-dark :focus-visible, .on-dark:focus-visible { outline-color: #fff; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; padding: 0.7rem 1.4rem;
+  border-radius: 999px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--color-ink);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-solid { background: var(--color-ink); color: var(--color-paper); }
+.btn-solid:hover { background: var(--color-teal); border-color: var(--color-teal); }
+.btn-line:hover { background: var(--color-ink); color: var(--color-paper); }
+.btn-light { background: var(--color-paper); color: var(--color-forest); border-color: var(--color-paper); }
+.btn-light:hover { background: var(--color-sage); border-color: var(--color-sage); }
+.link-u { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--color-teal); }
+.link-u:hover { color: var(--color-teal); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.scroll-cue { display: none; }
+@media (min-width: 1024px) and (min-height: 820px) { .scroll-cue { display: flex; } }

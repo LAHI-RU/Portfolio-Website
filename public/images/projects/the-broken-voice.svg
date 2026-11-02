@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Sample illustration: two overlapping circles">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DCE6E0"/><stop offset="1" stop-color="#536467"/></linearGradient></defs>
+<rect width="1200" height="900" fill="url(#g)"/><circle cx="470" cy="450" r="210" fill="none" stroke="#14282B" stroke-width="3"/><circle cx="730" cy="450" r="210" fill="none" stroke="#14282B" stroke-width="3"/><circle cx="600" cy="450" r="30" fill="#BB7860"/>
+<text x="32" y="868" font-family="DM Sans,Arial,sans-serif" font-size="22" fill="#FFFFFF" fill-opacity=".8">Sample image - replace before publishing</text></svg>

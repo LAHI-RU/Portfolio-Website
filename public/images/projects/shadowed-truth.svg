@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Sample illustration: light and shadow">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14282B"/><stop offset="1" stop-color="#0b1618"/></linearGradient></defs>
+<rect width="1200" height="900" fill="url(#g)"/><path d="M0 900L520 0h160L1200 900z" fill="#FFFFFF" fill-opacity=".12"/><path d="M520 900V520c0-60 40-100 80-100s80 40 80 100v380z" fill="#000" fill-opacity=".7"/>
+<text x="32" y="868" font-family="DM Sans,Arial,sans-serif" font-size="22" fill="#FFFFFF" fill-opacity=".8">Sample image - replace before publishing</text></svg>
