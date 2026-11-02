@@ -33,11 +33,22 @@ export const qualifications = [
   { title: "Certificate in Computer Applications", org: "Rainbow Informatics of Sri Lanka", period: "2013" },
 ];
 
-export const skills = {
-  "Creative applications": ["Adobe Premiere Pro", "Adobe After Effects", "Adobe Photoshop", "Canva", "CapCut"],
-  "Office applications": ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"],
-  "Professional skills": ["Communication", "Collaboration", "Analytical thinking", "Time management", "Adaptability", "Leadership"],
-};
+export const toolGroups = [
+  { title: "Creative applications", tools: [
+    { name: "Adobe Premiere Pro", icon: "adobepremierepro", color: "#5750BD", use: "Video editing" },
+    { name: "Adobe After Effects", icon: "adobeaftereffects", color: "#5750BD", use: "Motion graphics" },
+    { name: "Adobe Photoshop", icon: "adobephotoshop", color: "#1268A4", use: "Image editing" },
+    { name: "Canva", icon: "canva", color: "#087E8B", use: "Visual design" },
+    { name: "CapCut", icon: "capcut", color: "#19292D", use: "Video editing" },
+  ] },
+  { title: "Office applications", tools: [
+    { name: "Microsoft Word", icon: "microsoftword", color: "#185ABD", use: "Writing & documents" },
+    { name: "Microsoft Excel", icon: "microsoftexcel", color: "#107C41", use: "Spreadsheets" },
+    { name: "Microsoft PowerPoint", icon: "microsoftpowerpoint", color: "#C43E1C", use: "Presentations" },
+  ] },
+];
+
+export const professionalSkills = ["Communication", "Collaboration", "Analytical thinking", "Time management", "Adaptability", "Leadership"];
 
 export const languages = [{ name: "Sinhala", level: "Native" }, { name: "English", level: "Fluent" }];
 

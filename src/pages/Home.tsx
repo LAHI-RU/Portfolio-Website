@@ -3,9 +3,11 @@ import { motion, useReducedMotion, type Variants } from "motion/react";
 import { Clapperboard, PenLine, Search } from "lucide-react";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { assets } from "../data/assets";
-import { experience, education, recognition } from "../data/profile";
+import { experience, education } from "../data/profile";
+import { site } from "../data/site";
 import { projects } from "../data/projects";
-import { ContactCTA, Img, MLink, ProjectCard, Reveal, ease } from "../components/shared";
+import { AvailabilityLine, ContactCTA, Img, MLink, ProjectCard, Reveal, ease } from "../components/shared";
+import { Recognition } from "../components/Recognition";
 
 const expertise = [
   { n: "01", Icon: Clapperboard, t: "Visual Storytelling & Media", d: "Film and documentary projects on child protection and menstrual hygiene awareness, made with tools including Adobe Premiere Pro and After Effects." },
@@ -30,13 +32,14 @@ function Hero() {
     <motion.section variants={stagger} initial={reduce ? false : "hidden"} animate="show"
       className="wrap relative grid items-center gap-10 pt-28 pb-16 lg:min-h-[100svh] lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-16 lg:pt-24 lg:pb-12">
       <motion.div variants={stagger}>
-        <motion.p variants={fadeUp} className="meta">Communication / Media / Storytelling</motion.p>
+        <motion.p variants={fadeUp} className="eyebrow">Communication / Media / Storytelling</motion.p>
         <h1 className="display t-hero mt-5">
           <span className={lineBox}><motion.span variants={lineUp} className="block">Stories worth telling.</motion.span></span>
           <span className={lineBox}><motion.em variants={lineUp} className="block text-teal">Messages worth remembering.</motion.em></span>
         </h1>
         <motion.p variants={fadeUp} className="display mt-8 text-3xl">Kanchana Karunanayaka</motion.p>
         <motion.p variants={fadeUp} className="mt-3 prose-w text-slate">Exploring meaningful human stories through visual storytelling, creative communication, and research.</motion.p>
+        <motion.div variants={fadeUp}><AvailabilityLine className="mt-5" /></motion.div>
         <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
           <MLink to="/work" className="btn btn-solid" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>Explore my work</MLink>
           <MLink to="/about" className="btn btn-line" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>About me</MLink>
@@ -44,7 +47,7 @@ function Hero() {
       </motion.div>
       <motion.div variants={arch} className="mx-auto w-full max-w-sm lg:mx-0 lg:w-auto lg:max-w-none">
         <Img asset={assets.portrait} eager className="aspect-[4/5] w-full rounded-t-[999px] lg:h-[min(72svh,42rem)] lg:w-[calc(min(72svh,42rem)*0.8)]" />
-        <p className="meta mt-3 lg:w-0 lg:min-w-full">Temporary sample portrait. Replace in src/data/assets.ts.</p>
+        <p className="meta mt-3 lg:w-0 lg:min-w-full">{site.location} · Communication & visual storytelling</p>
       </motion.div>
       <motion.div variants={fadeUp} aria-hidden className="scroll-cue meta absolute bottom-6 left-0 items-center gap-3">
         <span className="relative h-10 w-px overflow-hidden bg-ink/20">
@@ -124,23 +127,10 @@ export default function Home() {
             </ol>
           </div>
         </div>
-        <div className="wrap mt-8"><Link to="/resume" className="link-u">See the full resume</Link></div>
+        <div className="wrap mt-8"><Link to="/about" className="link-u">More about my background</Link></div>
       </section>
 
-      <section className="section bg-sage/60" aria-labelledby="recognition">
-        <div className="wrap grid items-center gap-10 md:grid-cols-2">
-          <Reveal>
-            <h2 id="recognition" className="display t-section">{recognition.title}</h2>
-            <p className="display mt-3 text-3xl text-teal">{recognition.award}</p>
-            <p className="mt-4 prose-w">{recognition.detail}</p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="grid aspect-[4/3] place-items-center border border-dashed border-slate bg-paper p-6 text-center">
-              <p className="text-slate">Certificate image to be added<br /><span className="meta">src/data/assets.ts, “certificate”</span></p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <Recognition />
 
       <ContactCTA />
     </>

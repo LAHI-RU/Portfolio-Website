@@ -5,12 +5,14 @@ export const site = {
   monogram: "KK.",
   positioning: "Communication | Media Production | Visual Storytelling | Research",
   philosophy: "Thoughtful stories. Meaningful communication.",
+  location: "Based in Sri Lanka",
+  availability: "Open to job opportunities in media and communication.",
   email: "kaanchikarunanayake@gmail.com",
   linkedin: "https://www.linkedin.com/in/k-karunanayaka",
   // Set to e.g. "/files/Kanchana-Karunanayaka-Public-CV.pdf" once an approved public CV is added to public/files/.
   approvedCvUrl: null as string | null,
-  // Shows small "To be added / Needs review" tags where content is pending. Set to false for launch.
-  showStatusMarkers: true,
+  // Internal review badges are optional. Sample artwork is always labelled.
+  showStatusMarkers: false,
 };
 
 export const statusLabel: Record<Status, string> = {

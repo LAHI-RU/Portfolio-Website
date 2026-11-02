@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { projects } from "../data/projects";
 import { ContactCTA, Img, Mask } from "../components/shared";
+import { WritingSamples } from "../components/WritingSamples";
 
 const r = projects[3];
 
@@ -19,10 +20,10 @@ export default function Research() {
           <p className="meta">{r.categoryLabel}, {r.year}</p>
           <h2 className="display t-section mt-2">{r.title}</h2>
           <p className="mt-5 prose-w">{r.summary}</p>
-          <p className="mt-4 prose-w text-slate">Methods, findings and supporting documents will be added once approved for public sharing.</p>
-          <Link to={r.path} className="btn btn-solid mt-8">Read the case study</Link>
+          <Link to={r.path} className="btn btn-solid mt-8">Explore the research</Link>
         </div>
       </section>
+      <WritingSamples researchOnly />
       <ContactCTA />
     </>
   );

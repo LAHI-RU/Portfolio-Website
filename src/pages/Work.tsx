@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePageTitle } from "../hooks/usePageTitle";
 import { projects, type Project } from "../data/projects";
 import { ContactCTA, Mask, ProjectCard, ease } from "../components/shared";
+import { WritingSamples } from "../components/WritingSamples";
 
 const filters = ["All", "Film", "Documentary", "Research"] as const;
 
@@ -34,6 +35,7 @@ export default function Work() {
           </AnimatePresence>
         </ul>
       </section>
+      <WritingSamples />
       <ContactCTA />
     </>
   );

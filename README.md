@@ -2,7 +2,7 @@
 
 Multi-page editorial portfolio for Kanchana Karunanayaka (communication, media production, visual storytelling, research).
 
-**Status:** source is complete, but it was written in an offline environment. `npm install`, `npm run build` and visual testing have NOT been run yet. Run them first (steps below) and fix anything they report.
+**Status:** TypeScript checking and the production build pass. Browser visual verification remains outstanding because browser and desktop automation were unavailable during this update. See `CONTENT_TO_UPDATE.md` for missing original media and content.
 
 ## Stack
 React 19 + TypeScript, Vite, Tailwind CSS v4 (`@tailwindcss/vite`, `@theme` tokens in `src/styles/index.css`), Motion for React (`motion/react`), React Router 7, Lucide icons, DM Sans and Instrument Serif via `@fontsource` (bundled, no external requests). shadcn/ui is not used; all components are custom.
@@ -28,18 +28,23 @@ npm run preview
 - Shared easing and helpers (`Reveal`, `Mask`, `MLink`, `ease`) live in `src/components/shared.tsx`.
 
 ## Routes
-`/`, `/work`, `/work/the-broken-voice`, `/work/no-more-silence`, `/work/shadowed-truth`, `/research`, `/research/tv-advertising-ethics`, `/about`, `/resume`, `/contact`, and a 404 page.
+`/`, `/work`, `/work/the-broken-voice`, `/work/no-more-silence`, `/work/shadowed-truth`, `/research`, `/research/tv-advertising-ethics`, `/about`, `/contact`, and a 404 page. Legacy `/resume` links redirect to `/about`.
+
+The standalone résumé page has been removed. About integrates experience, education, toolkit and languages; earlier qualifications sit in an expandable disclosure. Contact provides a discreet CV link.
 
 ## Updating content
 All content lives in `src/data/`:
-- `site.ts`: email, LinkedIn, approved CV path, `showStatusMarkers` (set `false` to hide the "To be added" tags at launch)
-- `profile.ts`: experience, education, qualifications, skills, languages, activities, recognition
+- `site.ts`: email, LinkedIn, location, availability, approved CV path, optional internal review badges (off by default)
+- `profile.ts`: experience, education, qualifications, tool groups, working style, languages, activities, recognition
 - `projects.ts`: projects, detail rows, `videoUrl`
+- `writing.ts`: approved writing samples and their public file/URL; drafts remain hidden
 - `assets.ts`: every image, with alt text and `isSample` flag
 
 **Change an image:** put the file in `public/images/...`, then edit its entry in `assets.ts` (set `isSample: false`).
 **Add a real video:** set `videoUrl` in `projects.ts` to an embed URL (e.g. `https://www.youtube.com/embed/ID`).
-**Fill a pending detail:** add `text: "..."` and `status: "confirmed"` to the row in `projects.ts`.
+**Fill a pending detail:** add `text: "..."` and `status: "confirmed"` to the row in `projects.ts`. Only confirmed, non-empty rows render publicly.
+**Add writing:** add a confirmed entry to `writing.ts` and place its real file in `public/files/`. With no samples, a short forthcoming note appears; there are no inactive download buttons.
+**Toolkit icons:** SVG assets are served locally from `public/icons/`, with names available on hover, focus and tap. See `ASSET_CREDITS.md` for sources.
 **Add a project:** add an object to `projects`, add its image to `assets.ts`, and add `/work/<slug>` to `public/sitemap.xml`. Routes are generated from the data.
 **Public CV:** place the approved PDF at `public/files/Kanchana-Karunanayaka-Public-CV.pdf` and set `approvedCvUrl` in `site.ts`. Do not publish the original CV (home address, referee contacts).
 
@@ -50,7 +55,7 @@ Build with `npm run build` and deploy `dist/`. Both fallbacks for client-side ro
 - Page titles are set client-side; for richer link previews consider prerendering. The social preview image is an SVG, which some platforms ignore; export a 1200x630 PNG and update `index.html`.
 - The contact form uses `mailto:`; it opens the visitor's email app and does not send anything itself.
 - Category filtering exists on `/work`. No lint config is included.
-- Not yet tested: build, type-check, browser rendering, keyboard/screen-reader behaviour, Lighthouse.
+- Not yet tested: browser rendering, keyboard/screen-reader behaviour, Lighthouse. `npm run build` includes the TypeScript check.
 
 ## Asset licences
 See `ASSET_CREDITS.md`.

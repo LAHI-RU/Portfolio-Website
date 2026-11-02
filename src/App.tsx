@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import { MotionConfig } from "motion/react";
 import { Layout } from "./components/Layout";
 
@@ -8,7 +8,6 @@ const Work = lazy(() => import("./pages/Work"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
 const Research = lazy(() => import("./pages/Research"));
 const About = lazy(() => import("./pages/About"));
-const Resume = lazy(() => import("./pages/Resume"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -24,7 +23,7 @@ export default function App() {
             <Route path="research" element={<Research />} />
             <Route path="research/:slug" element={<ProjectPage />} />
             <Route path="about" element={<About />} />
-            <Route path="resume" element={<Resume />} />
+            <Route path="resume" element={<Navigate to="/about" replace />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Route>

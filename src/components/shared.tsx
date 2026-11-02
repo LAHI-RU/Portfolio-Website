@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowUp, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Clapperboard, Mail } from "lucide-react";
 import type { Asset } from "../data/assets";
 import { site, statusLabel, type Status } from "../data/site";
 import type { Project } from "../data/projects";
@@ -43,10 +43,10 @@ export function Img({ asset, className = "", eager }: { asset: Asset; className?
   return (
     <figure className={`relative overflow-hidden bg-sage ${className}`}>
       <motion.img ref={ref} src={asset.src} alt={asset.alt} loading={eager ? "eager" : "lazy"} decoding="async"
-        className="size-full object-cover" onLoad={() => setOk(true)} onError={() => setOk(true)}
+        className="size-full object-cover" style={{ objectPosition: asset.objectPosition }} onLoad={() => setOk(true)} onError={() => setOk(true)}
         initial={false} animate={{ opacity: ok ? 1 : 0, scale: ok ? 1 : 1.06 }} transition={{ duration: 0.8, ease }} />
-      {asset.isSample && site.showStatusMarkers && (
-        <figcaption className="absolute left-3 top-3 rounded-full bg-forest/80 px-2.5 py-0.5 text-xs text-paper">Sample image</figcaption>
+      {asset.isSample && (
+        <figcaption className="absolute left-3 top-3 rounded-full bg-forest/90 px-2.5 py-1 text-xs text-paper">{asset.sampleLabel ?? "Illustrative artwork"}</figcaption>
       )}
     </figure>
   );
@@ -79,12 +79,17 @@ export function ProjectCard({ p, aspect = "aspect-[4/3]", className = "" }: { p:
 export function VideoSlot({ url, title }: { url: string | null; title: string }) {
   if (!url) {
     return (
-      <div className="grid aspect-video place-items-center bg-forest text-paper on-dark p-6 text-center" role="group" aria-label={`${title} video`}>
-        <div><p className="display text-3xl">Video to be added</p><p className="mt-2 text-sage text-sm">A trailer or the full film will appear here once a link is supplied.</p></div>
+      <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center border-y border-ink/15 bg-sage/25 p-6 sm:p-10" role="group" aria-label={`${title} preview`}>
+        <span className="grid size-16 shrink-0 place-items-center rounded-full border border-teal/25 text-teal"><Clapperboard size={27} strokeWidth={1.3} aria-hidden /></span>
+        <div><p className="meta mb-2">{title}</p><p className="display text-3xl">Film preview forthcoming.</p><p className="mt-3 text-slate text-sm">A teaser or film will be shared here when available.</p></div>
       </div>
     );
   }
-  return <iframe className="aspect-video w-full" src={url} title={`${title} video`} loading="lazy" allowFullScreen />;
+  return <iframe className="aspect-video w-full border-0 bg-forest" src={url} title={`${title} video`} loading="lazy" allow="fullscreen; picture-in-picture" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />;
+}
+
+export function AvailabilityLine({ className = "" }: { className?: string }) {
+  return <p className={`flex items-start gap-2.5 text-sm text-slate max-w-lg ${className}`}><span className="size-1.5 shrink-0 rounded-full bg-teal mt-2" aria-hidden />{site.availability}</p>;
 }
 
 export function ContactCTA() {
@@ -92,7 +97,7 @@ export function ContactCTA() {
     <section className="section bg-forest text-paper on-dark">
       <div className="wrap">
         <Reveal><h2 className="display t-page max-w-3xl">Let's create something meaningful.</h2></Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-sage">Open to conversations and opportunities in media, communication, and creative storytelling.</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-sage">{site.availability}</p></Reveal>
         <Reveal delay={0.2} className="mt-10 flex flex-wrap items-center gap-4">
           <MLink to="/contact" className="btn btn-light" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>Get in touch</MLink>
           <SocialLinks dark />

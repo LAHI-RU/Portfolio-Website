@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { site } from "../data/site";
 import { BackToTop, MLink, SocialLinks, ease } from "./shared";
 
-const nav = [["Work", "/work"], ["About", "/about"], ["Research", "/research"], ["Resume", "/resume"], ["Contact", "/contact"]] as const;
+const nav = [["Work", "/work"], ["About", "/about"], ["Research", "/research"], ["Contact", "/contact"]] as const;
 const mobileNav = [["Home", "/"], ...nav] as const;
 
 export function Layout() {
