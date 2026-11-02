@@ -6,7 +6,7 @@ import { Img, Reveal } from "./shared";
 
 export function Recognition() {
   return (
-    <section className="section bg-sage/60" aria-labelledby="recognition">
+    <section className="section bg-paper border-t border-line" aria-labelledby="recognition">
       <div className="wrap grid items-center gap-10 md:grid-cols-2">
         <Reveal>
           <p className="eyebrow mb-4">A story, recognized</p>

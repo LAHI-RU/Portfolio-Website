@@ -34,7 +34,7 @@ export function Layout() {
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-ink focus:text-paper focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "bg-paper/95 backdrop-blur border-b border-ink/10" : "bg-transparent"}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 bg-paper/95 backdrop-blur transition-colors duration-300 ${scrolled || open ? "border-b border-line" : "border-b border-transparent"}`}>
         <div className="wrap flex h-16 items-center justify-between">
           <Link to="/" className="display whitespace-nowrap text-xl sm:text-2xl" aria-label={`${site.name}, home`}>{site.name}</Link>
           <nav aria-label="Main" className="hidden lg:flex items-center gap-8">
@@ -58,14 +58,14 @@ export function Layout() {
       </header>
       <AnimatePresence>
         {open && (
-          <motion.nav id="mobile-menu" aria-label="Mobile" className="fixed inset-0 z-40 bg-forest text-paper on-dark pt-24 px-6 flex flex-col gap-2 lg:hidden"
+          <motion.nav id="mobile-menu" aria-label="Mobile" className="fixed inset-0 z-40 bg-paper text-ink pt-24 px-6 flex flex-col gap-2 lg:hidden"
             initial={reduce ? { opacity: 0 } : { clipPath: "inset(0 0 100% 0)" }}
             animate={reduce ? { opacity: 1 } : { clipPath: "inset(0 0 0% 0)" }}
             exit={reduce ? { opacity: 0 } : { clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.4, ease }}>
             {mobileNav.map(([l, to], i) => (
               <motion.div key={to} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.15 + i * 0.06, ease }}>
-                <NavLink to={to} end={to === "/"} className={({ isActive }) => `display block text-5xl py-2 ${isActive ? "text-sage" : ""}`}>{l}</NavLink>
+                <NavLink to={to} end={to === "/"} className={({ isActive }) => `display block text-5xl py-2 transition-colors hover:text-teal ${isActive ? "text-teal" : ""}`}>{l}</NavLink>
               </motion.div>
             ))}
           </motion.nav>
@@ -74,7 +74,7 @@ export function Layout() {
       <motion.main id="main" tabIndex={-1} key={pathname} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease }} className="outline-none">
         <Outlet />
       </motion.main>
-      <footer className="bg-paper border-t border-ink/10">
+      <footer className="bg-paper border-t border-line">
         <div className="wrap py-12 grid gap-10 md:grid-cols-3">
           <div>
             <p className="display text-3xl">{site.name}</p>

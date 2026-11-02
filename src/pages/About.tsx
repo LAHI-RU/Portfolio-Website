@@ -82,7 +82,7 @@ export default function About() {
         </Reveal>
       </section>
 
-      <section className="section bg-sage/60">
+      <section className="section bg-paper border-t border-line">
         <div className="wrap">
           <p className="eyebrow mb-3">Away from the screen</p>
           <h2 className="display text-4xl">Beyond work</h2>

@@ -41,7 +41,7 @@ export function Img({ asset, className = "", eager }: { asset: Asset; className?
   const [ok, setOk] = useState(false);
   useEffect(() => { if (ref.current?.complete) setOk(true); }, []);
   return (
-    <figure className={`relative overflow-hidden bg-sage ${className}`}>
+    <figure className={`relative overflow-hidden bg-surface ${className}`}>
       <motion.img ref={ref} src={asset.src} alt={asset.alt} loading={eager ? "eager" : "lazy"} decoding="async"
         className="size-full object-cover" style={{ objectPosition: asset.objectPosition }} onLoad={() => setOk(true)} onError={() => setOk(true)}
         initial={false} animate={{ opacity: ok ? 1 : 0, scale: ok ? 1 : 1.06 }} transition={{ duration: 0.8, ease }} />
@@ -79,7 +79,7 @@ export function ProjectCard({ p, aspect = "aspect-[4/3]", className = "" }: { p:
 export function VideoSlot({ url, title }: { url: string | null; title: string }) {
   if (!url) {
     return (
-      <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center border-y border-ink/15 bg-sage/25 p-6 sm:p-10" role="group" aria-label={`${title} preview`}>
+      <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center border-y border-line bg-surface p-6 sm:p-10" role="group" aria-label={`${title} preview`}>
         <span className="grid size-16 shrink-0 place-items-center rounded-full border border-teal/25 text-teal"><Clapperboard size={27} strokeWidth={1.3} aria-hidden /></span>
         <div><p className="meta mb-2">{title}</p><p className="display text-3xl">Film preview forthcoming.</p><p className="mt-3 text-slate text-sm">A teaser or film will be shared here when available.</p></div>
       </div>
@@ -94,13 +94,13 @@ export function AvailabilityLine({ className = "" }: { className?: string }) {
 
 export function ContactCTA() {
   return (
-    <section className="section bg-forest text-paper on-dark">
+    <section className="section bg-paper text-ink border-t border-line">
       <div className="wrap">
         <Reveal><h2 className="display t-page max-w-3xl">Let's create something meaningful.</h2></Reveal>
-        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-sage">{site.availability}</p></Reveal>
+        <Reveal delay={0.1}><p className="mt-6 max-w-xl text-slate">{site.availability}</p></Reveal>
         <Reveal delay={0.2} className="mt-10 flex flex-wrap items-center gap-4">
-          <MLink to="/contact" className="btn btn-light" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>Get in touch</MLink>
-          <SocialLinks dark />
+          <MLink to="/contact" className="btn btn-solid" whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>Get in touch</MLink>
+          <SocialLinks />
         </Reveal>
       </div>
     </section>
@@ -117,7 +117,7 @@ export function LinkedInIcon({ size = 20 }: { size?: number }) {
 
 export function SocialLinks({ dark, className = "" }: { dark?: boolean; className?: string }) {
   const cls = `grid size-11 place-items-center rounded-full border transition-colors ${
-    dark ? "on-dark border-sage/60 text-paper hover:bg-paper/10" : "border-ink/30 text-ink hover:bg-ink hover:text-paper"
+    dark ? "on-dark border-sage/60 text-paper hover:bg-paper/10" : "border-control bg-paper text-teal hover:border-teal hover:bg-teal hover:text-paper"
   }`;
   const hover = { whileHover: { y: -3 }, whileTap: { scale: 0.93 } };
   return (

@@ -21,7 +21,7 @@ export default function Contact() {
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(String(d.get("subject") || "Hello from your portfolio"))}&body=${encodeURIComponent(body)}`;
     setSent(true);
   }
-  const field = "mt-1 w-full border border-ink/30 bg-white px-3 py-2.5 rounded";
+  const field = "contact-field mt-1 w-full px-3 py-2.5 rounded";
   return (
     <div className="wrap grid gap-14 pt-32 pb-24 lg:grid-cols-2">
       <div>

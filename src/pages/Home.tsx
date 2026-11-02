@@ -78,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-sage/60" aria-labelledby="beyond">
+      <section className="section bg-paper border-y border-line" aria-labelledby="beyond">
         <div className="wrap grid gap-10 md:grid-cols-12">
           <Reveal className="md:col-span-5"><h2 id="beyond" className="display t-section">Beyond the Frame</h2></Reveal>
           <Reveal delay={0.12} className="md:col-span-7">
